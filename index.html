@@ -641,6 +641,13 @@ input, select { font-family: inherit; outline: none; border: none; }
 // ── CONFIG ── update API_URL once deployed to Render
 const API_URL = 'https://local-tech-deals-api.onrender.com';
 
+// ── Keep Render awake (ping every 9 minutes) ───────────────
+function pingAPI() {
+  fetch(API_URL + '/health').catch(() => {});
+}
+pingAPI(); // ping immediately on page load
+setInterval(pingAPI, 9 * 60 * 1000);
+
 const CATEGORIES = [
   ['All', 'All'],
   ['📺 TVs', 'TVs'],
