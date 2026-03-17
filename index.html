@@ -648,6 +648,18 @@ function pingAPI() {
 pingAPI(); // ping immediately on page load
 setInterval(pingAPI, 9 * 60 * 1000);
 
+const TIPS = [
+  'Deals scored 80+ are usually the best value — look for the hot glow on cards.',
+  'Click the 👁 Watch button on a deal to save it and get notified next time.',
+  'Local store deals include your distance — closer stores rank higher.',
+  'National deals from eBay, Amazon, and Walmart are always included regardless of ZIP.',
+  'The deal score factors in discount %, price, and community ratings.',
+  'Best time to find deals: Tuesday–Thursday when stores update weekly sales.',
+  'Use the category tabs to filter by Laptops, GPUs, Phones, and more.',
+];
+let tipInterval = null;
+let storeInterval = null;
+
 const CATEGORIES = [
   ['All', 'All'],
   ['📺 TVs', 'TVs'],
@@ -720,18 +732,6 @@ function resetToLanding() {
 }
 
 // ── Loading animation ──────────────────────────────────────
-const TIPS = [
-  'Deals scored 80+ are usually the best value — look for the hot glow on cards.',
-  'Click the 👁 Watch button on a deal to save it and get notified next time.',
-  'Local store deals include your distance — closer stores rank higher.',
-  'National deals from eBay, Amazon, and Walmart are always included regardless of ZIP.',
-  'The deal score factors in discount %, price, and community ratings.',
-  'Best time to find deals: Tuesday–Thursday when stores update weekly sales.',
-  'Use the category tabs to filter by Laptops, GPUs, Phones, and more.',
-];
-let tipInterval = null;
-let storeInterval = null;
-
 function startLoadingAnimation(zip) {
   // Tips rotation
   let tipIdx = 0;
